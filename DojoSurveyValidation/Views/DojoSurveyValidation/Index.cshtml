@@ -1,0 +1,72 @@
+@model Survey
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <link rel="stylesheet" href="~/css/style.css"/>
+    <title>Dojo Survey</title>
+</head>
+<body>
+    <div class="form-group survey-form">
+        <form asp-action="Submit" asp-controller="DojoSurveyValidation"method="post">
+            <div class="form-group row">
+                <label asp-for="Name" class="col-sm-4 col-form-label">Your Name:</label>
+                <div class="col-sm-8">
+                    <input type="name" class="form-control" asp-for="Name" placeholder="Name">
+                    <span asp-validation-for="Name" class="error-message"></span>
+                </div>
+                
+            </div>
+
+            <div class="form-group row select-location">
+                <label asp-for="Location" class="col-sm-4 col-form-label">Dojo Location:</label>
+                <div class="col-sm-8">
+                    <select class="custom-select select-location" asp-for="Location">
+                        <option value="">Choose a location...</option>
+                        <option value="San Jose">San Jose</option>
+                        <option value="Costa Mesa">Costa Mesa</option>
+                        <option value="Burbank">Burbank</option>
+                        <option value="Seattle">Seattle</option>
+                    </select>
+                    <span asp-validation-for="Location" class="error-message"></span>
+                </div>
+            </div>
+
+             <div class="form-group row select-language">
+                <label asp-for="Language" class="col-sm-4 col-form-label">Favorite Language:</label>
+                <div class="col-sm-8">
+                    <select class="custom-select select-language" asp-for="Language">
+                        <option value="">Choose a language...</option>
+                        <option value="Python">Python</option>
+                        <option value="JavaScript">JavaScript</option>
+                        <option value="C#">C#</option>
+                        <option value="Java">Java</option>
+                    </select>
+                    <span asp-validation-for="Language" class="error-message"></span>
+                </div>
+            </div>
+
+            <div class="form-group enter-comment">
+                <label asp-for="Comment">Comment (optional):</label>
+                <div class="form-group">
+                    <textarea class="form-control" id="enter-comment" rows="3" asp-for="Comment"></textarea>
+                    <span asp-validation-for="Comment" class="error-message"></span>
+                </div>
+                
+            </div>
+
+            <div class="form-group submit-survey">
+                <div class="form-group submit-button">
+                    <button type="button submit" class="btn btn-primary btn-sm float-right">Submit</button>
+                </div>
+            </div>
+
+        </form>
+    </div>
+</body>
+</html>
